@@ -47,7 +47,7 @@ class Crop(object):
         if len(copied_sequence) - sub_seq_length - 1 == 0:
             start_index = 0
         else:
-            start_index = random.randint(0, abs(len(copied_sequence) - sub_seq_length - 1))
+            start_index = random.randint(0, len(copied_sequence) - sub_seq_length - 1)
         if sub_seq_length < 1:
             return [copied_sequence[start_index]]
         else:
