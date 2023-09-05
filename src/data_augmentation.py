@@ -36,7 +36,7 @@ def _ensmeble_sim_models(top_k_one, top_k_two):
 class Crop(object):
     """Randomly crop a subseq from the original sequence"""
 
-    def __init__(self, tao=0.5):
+    def __init__(self, tao=0.2):
         self.tao = tao
 
     def __call__(self, sequence):
@@ -44,7 +44,7 @@ class Crop(object):
         copied_sequence = copy.deepcopy(sequence)
         sub_seq_length = int(self.tao * len(copied_sequence))
         # randint generate int x in range: a <= x <= b
-        start_index = random.randint(0, len(copied_sequence) - sub_seq_length - 1)
+        start_index = random.randint(0, abs(len(copied_sequence) - sub_seq_length - 1))
         if sub_seq_length < 1:
             return [copied_sequence[start_index]]
         else:
