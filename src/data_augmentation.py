@@ -44,7 +44,7 @@ class Crop(object):
         copied_sequence = copy.deepcopy(sequence)
         sub_seq_length = int(self.tao * len(copied_sequence))
         # randint generate int x in range: a <= x <= b
-        if len(copied_sequence) - sub_seq_length - 1 == 0:
+        if len(copied_sequence) - sub_seq_length - 1 <= 0:
             start_index = 0
         else:
             start_index = random.randint(0, len(copied_sequence) - sub_seq_length - 1)
@@ -82,7 +82,7 @@ class Reorder(object):
         # make a deep copy to avoid original sequence be modified
         copied_sequence = copy.deepcopy(sequence)
         sub_seq_length = int(self.beta * len(copied_sequence))
-        if len(copied_sequence) - sub_seq_length - 1 == 0:
+        if len(copied_sequence) - sub_seq_length - 1 <= 0:
             start_index = 0
         else:
             start_index = random.randint(0, len(copied_sequence) - sub_seq_length - 1)
