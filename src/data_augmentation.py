@@ -79,7 +79,7 @@ class Reorder(object):
         # make a deep copy to avoid original sequence be modified
         copied_sequence = copy.deepcopy(sequence)
         sub_seq_length = int(self.beta * len(copied_sequence))
-        start_index = random.randint(0, len(copied_sequence) - sub_seq_length - 1)
+        start_index = random.randint(0, abs(len(copied_sequence) - sub_seq_length - 1))
         sub_seq = copied_sequence[start_index : start_index + sub_seq_length]
         random.shuffle(sub_seq)
         reordered_seq = copied_sequence[:start_index] + sub_seq + copied_sequence[start_index + sub_seq_length :]
